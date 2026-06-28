@@ -1,19 +1,27 @@
 import SwiftUI
 
 struct CountryPickerView: View {
-    @State private var selectedCountry: Country = .india
+    @State private var selectedModuleID: String = ""
     @State private var showMap = false
+
+    private var modules: [CountryModuleRegistrar] {
+        CountryRegistry.allModules
+    }
+
+    private var selectedModule: CountryModuleRegistrar? {
+        CountryRegistry.module(for: selectedModuleID)
+    }
 
     var body: some View {
         NavigationStack {
             Form {
                 Section("Select Country") {
-                    Picker("Country", selection: $selectedCountry) {
-                        ForEach(Country.allCases) { country in
-                            Text(country.rawValue).tag(country)
+                    Picker("Country", selection: $selectedModuleID) {
+                        ForEach(modules) { module in
+                            Text(module.identity.displayName).tag(module.id)
                         }
                     }
-                    .pickerStyle(.segmented)
+                    .pickerStyle(.menu)
                 }
 
                 Section {
@@ -21,11 +29,19 @@ struct CountryPickerView: View {
                         showMap = true
                     }
                     .frame(maxWidth: .infinity, alignment: .center)
+                    .disabled(selectedModule == nil)
                 }
             }
             .navigationTitle("ModularMaps")
             .navigationDestination(isPresented: $showMap) {
-                MapView(viewModel: selectedCountry.makeViewModel())
+                if let module = selectedModule {
+                    MapView(viewModel: MapViewModel(module: module))
+                }
+            }
+            .onAppear {
+                if selectedModuleID.isEmpty, let first = modules.first {
+                    selectedModuleID = first.id
+                }
             }
         }
     }

@@ -4,6 +4,21 @@ Multi-country modular map architecture for iOS — shared core, country-specific
 
 ModularMaps is a system design reference for building map functionality when multiple developer teams in different countries share a single codebase and ship one app to the App Store — while allowing each region to use its own UI and map SDK.
 
+## Adding a new country (e.g. Japan)
+
+1. Create `MapModule/Subviews/JapanModule/` with:
+   - `JapanConfiguration.swift`
+   - `JapanMapView.swift`
+   - `JapanCountryModule.swift` (exports `registrar`)
+2. Add **one line** to `ModuleCatalog.bootstrap()`:
+   ```swift
+   CountryRegistry.register(JapanCountryModule.registrar)
+   ```
+
+Do **not** edit `CountryPickerView`, `MapView`, or `MapViewModel`.
+
+With SPM (future), each country becomes its own package and the app target links it — `ModuleCatalog` moves to the app shell.
+
 ## Architecture
 
 - **Shared core** — common map logic, location models, and view models

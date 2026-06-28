@@ -4,12 +4,12 @@ struct MapView: View {
     var viewModel: MapViewModel
 
     var body: some View {
-        viewModel.country.mapScreen
+        viewModel.module.makeMapScreen()
     }
 }
 
 #Preview {
     NavigationStack {
-        MapView(viewModel: MapViewModel(country: .india))
+        MapView(viewModel: MapViewModel(module: IndiaCountryModule.registrar))
     }
 }
