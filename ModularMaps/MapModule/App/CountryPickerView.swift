@@ -4,11 +4,11 @@ struct CountryPickerView: View {
     @State private var selectedModuleID: String = ""
     @State private var showMap = false
 
-    private var modules: [CountryModuleRegistrar] {
+    private var modules: [AnyCountryModule] {
         CountryRegistry.allModules
     }
 
-    private var selectedModule: CountryModuleRegistrar? {
+    private var selectedModule: AnyCountryModule? {
         CountryRegistry.module(for: selectedModuleID)
     }
 

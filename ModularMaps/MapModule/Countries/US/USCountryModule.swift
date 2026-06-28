@@ -1,10 +1,17 @@
 import SwiftUI
 
-enum USCountryModule {
-    static let registrar = CountryModuleRegistrar(
-        identity: CountryIdentity(id: "us", displayName: "US"),
-        makeMapScreen: {
-            USMapView(configuration: USConfiguration())
-        }
-    )
+enum USCountryModule: CountryModule {
+    typealias Configuration = USConfiguration
+
+    static var identity: CountryIdentity {
+        CountryIdentity(id: "us", displayName: "US")
+    }
+
+    static func makeConfiguration() -> USConfiguration {
+        USConfiguration()
+    }
+
+    static func makeMapScreen(configuration: USConfiguration) -> some View {
+        USMapView(configuration: configuration)
+    }
 }
