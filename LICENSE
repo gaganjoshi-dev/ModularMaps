@@ -1,29 +1,36 @@
-MIT License
+Copyright (c) 2024-2026 Gagan Joshi. All Rights Reserved.
 
-Copyright (c) 2024-2026 Gagan Joshi
+PROPRIETARY SOFTWARE LICENSE
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+This software and associated documentation files (the "Software") are the
+exclusive property of Gagan Joshi.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+PERMITTED USE
+You may view and run this Software for personal, non-commercial evaluation
+only with the express permission of Gagan Joshi.
 
+RESTRICTIONS
+Without prior written permission from Gagan Joshi, you may NOT:
+
+  - Copy, reproduce, or duplicate any part of this Software
+  - Distribute, publish, sublicense, or sell this Software
+  - Modify, adapt, or create derivative works based on this Software
+  - Use this Software for any commercial purpose
+  - Incorporate this Software into other products or services
+
+MAP DATA & THIRD-PARTY SERVICES
+Map tiles and geographic data may be provided by Apple MapKit and Google Maps
+Platform. Their use is subject to each provider's terms of service. This
+Software's source code does not include Google Maps SDK binaries. Map data and
+services are separate from this Software's source code.
+
+DISCLAIMER
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+GAGAN JOSHI BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING
+FROM THE USE OF THIS SOFTWARE.
 
----
-
-Third-party map data
-
-Map tiles and geographic data are provided by Apple MapKit and (when integrated)
-Google Maps Platform. Their use is subject to the respective provider terms of
-service. This project's source code does not include Google Maps SDK binaries.
+CONTACT
+For licensing inquiries or permission requests, contact the copyright holder:
+Gagan Joshi
