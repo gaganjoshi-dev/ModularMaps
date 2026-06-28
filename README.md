@@ -49,22 +49,25 @@ CountryPicker → CountryRegistry → Country Module → MapProviderView → Map
 
 ```
 MapModule/
+├── Core/                  Shared models, registry, protocols, map logic
 ├── Adapters/              MKMapViewWrapper, GoogleMapViewWrapper
-├── PresentationLayer/     CountryPickerView, MapView, CountryRegistry
-└── Subviews/
-    ├── IndiaModule/       Configuration + MapView + CountryModule
-    ├── USModule/
-    ├── UKModule/
-    └── JapanModule/
+├── App/                   CountryPickerView, MapView, MapViewModel
+└── Countries/
+    ├── India/             Configuration + MapView + CountryModule
+    ├── US/
+    ├── UK/
+    └── Japan/
 ```
 
 Each country folder has three files: `*Configuration`, `*MapView`, `*CountryModule`.
+
+**Why `Core`?** Holds code every country shares — registry, domain models, annotation builder, and map provider routing. Country teams do not edit this folder.
 
 ---
 
 ## Add a country
 
-1. Create `MapModule/Subviews/FranceModule/` with config, view, and registrar.  
+1. Create `MapModule/Countries/France/` with config, view, and registrar.  
 2. Register in `ModuleCatalog.bootstrap()`:
 
 ```swift
