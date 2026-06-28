@@ -16,9 +16,16 @@ extension CustomizableView {
             Text(title)
                 .padding(buttonPadding)
                 .background(buttonColor)
-                .foregroundStyle(buttonColor == .white || buttonColor == .yellow ? Color.primary : Color.white)
+                .foregroundColor(labelColor(for: buttonColor))
                 .cornerRadius(8)
                 .shadow(radius: 4)
         }
+    }
+
+    private func labelColor(for buttonColor: Color) -> Color {
+        if buttonColor == .white || buttonColor == .yellow {
+            return .primary
+        }
+        return .white
     }
 }
