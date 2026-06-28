@@ -3,9 +3,9 @@ import SwiftUI
 @Observable
 @MainActor
 final class MapViewModel {
-    private(set) var module: CountryModuleRegistrar
+    private(set) var module: AnyCountryModule
 
-    init(module: CountryModuleRegistrar) {
+    init(module: AnyCountryModule) {
         self.module = module
     }
 }

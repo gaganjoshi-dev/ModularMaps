@@ -41,7 +41,7 @@ CountryPicker → CountryRegistry → Country Module → MapProviderView → Map
 | Location model, annotation builder | UI layout & colors |
 | Map adapters, registry | Region, pins, map SDK choice |
 
-**Patterns:** Registry, Adapter, Strategy, Configuration, MVVM, `UIViewRepresentable` bridge.
+**Patterns:** Registry, Adapter, Strategy, Configuration, **associated-type `CountryModule` protocol**, MVVM, `UIViewRepresentable` bridge.
 
 ---
 
@@ -49,26 +49,29 @@ CountryPicker → CountryRegistry → Country Module → MapProviderView → Map
 
 ```
 MapModule/
+├── Core/                  Shared models, registry, protocols — never edited per country
 ├── Adapters/              MKMapViewWrapper, GoogleMapViewWrapper
-├── PresentationLayer/     CountryPickerView, MapView, CountryRegistry
-└── Subviews/
-    ├── IndiaModule/       Configuration + MapView + CountryModule
-    ├── USModule/
-    ├── UKModule/
-    └── JapanModule/
+├── App/                   CountryPickerView, MapView, ModuleCatalog (wire countries here)
+└── Countries/
+    ├── India/             Configuration + MapView + CountryModule
+    ├── US/
+    ├── UK/
+    └── Japan/
 ```
 
 Each country folder has three files: `*Configuration`, `*MapView`, `*CountryModule`.
+
+**`Core` vs `App`:** `Core` holds shared logic and does **not** change when you add a country. Register new modules in `App/ModuleCatalog.swift` only.
 
 ---
 
 ## Add a country
 
-1. Create `MapModule/Subviews/FranceModule/` with config, view, and registrar.  
-2. Register in `ModuleCatalog.bootstrap()`:
+1. Create `MapModule/Countries/France/` with config, view, and registrar.
+2. Add **one line** to `App/ModuleCatalog.swift`:
 
 ```swift
-CountryRegistry.register(FranceCountryModule.registrar)
+CountryRegistry.register(FranceCountryModule.self)
 ```
 
 Do not edit `CountryPickerView`, `MapView`, or `MapViewModel`.

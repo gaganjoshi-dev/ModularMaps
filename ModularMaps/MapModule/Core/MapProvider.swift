@@ -19,10 +19,3 @@ struct MapProviderView: View {
         }
     }
 }
-
-struct MapRegion {
-    let centerLatitude: Double
-    let centerLongitude: Double
-    let latitudeDelta: Double
-    let longitudeDelta: Double
-}

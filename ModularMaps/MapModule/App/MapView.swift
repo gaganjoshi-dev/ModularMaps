@@ -10,6 +10,6 @@ struct MapView: View {
 
 #Preview {
     NavigationStack {
-        MapView(viewModel: MapViewModel(module: IndiaCountryModule.registrar))
+        MapView(viewModel: MapViewModel(module: AnyCountryModule(IndiaCountryModule.self)))
     }
 }
