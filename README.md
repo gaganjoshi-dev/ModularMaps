@@ -25,15 +25,13 @@ ModularMaps is one answer: a **modular monolith** with a country module registry
 
 ## Screenshots
 
-> Add screenshots to [`docs/screenshots/`](docs/screenshots/) and uncomment the section below.
-
-<!--
 | Country picker | India (MapKit) | US (Google adapter) |
 |:---:|:---:|:---:|
-| ![Picker](docs/screenshots/country-picker.png) | ![India](docs/screenshots/india-map.png) | ![US](docs/screenshots/us-map.png) |
--->
+| ![Country picker](docs/screenshots/country-picker.png) | ![India map](docs/screenshots/india-map.png) | ![US map](docs/screenshots/us-map.png) |
 
-**Yes — add screenshots.** They help reviewers and interviewers understand the project in seconds. Capture the country picker plus at least two country maps showing different UI and map providers.
+| UK (MapKit) | Japan (registry demo) |
+|:---:|:---:|
+| ![UK map](docs/screenshots/uk-map.png) | ![Japan map](docs/screenshots/japan-map.png) |
 
 ---
 
@@ -252,7 +250,6 @@ This is a **learning / interview reference**, not production-ready:
 |------|----------------|
 | Google Maps | Adapter **stub** — uses MapKit with hybrid style + badge; real `GMSMapView` not integrated |
 | Module boundaries | Folder-based; not yet SPM packages |
-| Auth / login | Separate project by design — not included here |
 | Tests | Not included (learning scope) |
 | Localization | English only |
 | Remote config | Country chosen in-app, not from server/locale |
@@ -268,20 +265,9 @@ If you want to take this further for learning:
 1. **Real Google Maps SDK** for the US module (API key via `xcconfig`, not committed)
 2. **SPM packages** — `ModularMapsCore`, `IndiaFeature`, `USFeature`, etc.
 3. **Architecture diagram image** in README (export from Mermaid or draw.io)
-4. **Screenshots** in `docs/screenshots/` (highly recommended for GitHub)
-5. **App shell doc** — how a separate Login project would pass `CountryIdentity` into this module
-6. **`CODEOWNERS`** file — show how teams own country folders on GitHub
-7. **Replace `AnyView`** in registry with `@ViewBuilder` generics if you want to avoid type erasure
-8. **Locale-based default country** instead of always defaulting to first in list
-
----
-
-## Related projects
-
-| Project | Role |
-|---------|------|
-| **ModularMaps** (this repo) | Map feature — country modules, adapters, shared core |
-| **Login / Auth module** (separate) | Authentication — composed with this at ship time into one App Store app |
+4. **`CODEOWNERS`** file — show how teams own country folders on GitHub
+5. **Replace `AnyView`** in registry with `@ViewBuilder` generics if you want to avoid type erasure
+6. **Locale-based default country** instead of always defaulting to first in list
 
 ---
 
